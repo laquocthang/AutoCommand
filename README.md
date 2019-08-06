@@ -3,6 +3,10 @@
 
 ## Cài đặt
 
+## Lưu ý
+
+Vẫn còn tồn tại một số lỗi 
+
 ## Hướng dẫn sử dụng
 
 ## Yêu cầu
@@ -11,4 +15,5 @@
 
 ## Tác giả
 
+Nếu có góp ý về ứng dụng này, vui lòng liên hệ qua email sau:
 La Quốc Thắng - quocthang_0507@yahoo.com.vn
