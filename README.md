@@ -3,6 +3,8 @@
 
 ## Cài đặt
 
+![Main Application](capture.jpg?raw=true "Main Application")
+
 ## Lưu ý
 
 Vẫn còn tồn tại một số lỗi 
