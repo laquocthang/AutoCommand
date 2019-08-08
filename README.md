@@ -3,7 +3,7 @@
 
 ## Cài đặt
 
-![Main Application](capture.png?raw=true "Main Application")
+![Main Application](Capture.PNG?raw=true "Main Application")
 
 ## Lưu ý
 
