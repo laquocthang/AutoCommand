@@ -430,7 +430,7 @@ namespace AutoCommand
 		private void listFont_DrawItem(object sender, DrawItemEventArgs e)
 		{
 			e.DrawBackground();
-			e.Graphics.DrawString(listFont.Items[e.Index].ToString(), new Font(listFont.Items[e.Index].ToString(), 20), Brushes.Black, e.Bounds);
+			e.Graphics.DrawString(listFont.Items[e.Index].ToString(), new Font(listFont.Items[e.Index].ToString(), 16), Brushes.Black, e.Bounds);
 		}
 
 		private void btn_Start2_Click(object sender, EventArgs e)

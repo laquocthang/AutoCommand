@@ -13,7 +13,8 @@ namespace AutoCommand
 		ToLower,
 		ToUpper,
 		ToFirstUpper,
-		ToTitle
+		ToTitle,
+		ToCamelCase
 	}
 
 	public class Converter
@@ -33,6 +34,8 @@ namespace AutoCommand
 				case TextCase.ToTitle:
 					TextInfo t = new CultureInfo("en-US", false).TextInfo;
 					return t.ToTitleCase(text);
+				case TextCase.ToCamelCase:
+					return ChangeCase(text, (int)TextCase.ToTitle).Replace(" ", "");
 				default:
 					return null;
 			}

@@ -100,6 +100,7 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutAuthorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tabPage2.SuspendLayout();
 			this.groupBox6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbx_After)).BeginInit();
@@ -115,6 +116,7 @@
 			this.groupBox1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabPage2
@@ -143,16 +145,17 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(826, 361);
+			this.tabPage2.Size = new System.Drawing.Size(826, 461);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Multi-Watermark Tool";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
 			// btn_Review
 			// 
+			this.btn_Review.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_Review.AutoSize = true;
 			this.btn_Review.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-			this.btn_Review.Location = new System.Drawing.Point(83, 106);
+			this.btn_Review.Location = new System.Drawing.Point(731, 26);
 			this.btn_Review.Name = "btn_Review";
 			this.btn_Review.Size = new System.Drawing.Size(75, 26);
 			this.btn_Review.TabIndex = 23;
@@ -162,7 +165,7 @@
 			// 
 			// btn_ChoosenColor
 			// 
-			this.btn_ChoosenColor.Location = new System.Drawing.Point(243, 78);
+			this.btn_ChoosenColor.Location = new System.Drawing.Point(273, 106);
 			this.btn_ChoosenColor.Name = "btn_ChoosenColor";
 			this.btn_ChoosenColor.Size = new System.Drawing.Size(75, 23);
 			this.btn_ChoosenColor.TabIndex = 22;
@@ -173,24 +176,24 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(203, 83);
+			this.label15.Location = new System.Drawing.Point(233, 111);
 			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(34, 13);
+			this.label15.Size = new System.Drawing.Size(39, 15);
 			this.label15.TabIndex = 21;
 			this.label15.Text = "Color:";
 			// 
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(128, 83);
+			this.label14.Location = new System.Drawing.Point(158, 111);
 			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(15, 13);
+			this.label14.Size = new System.Drawing.Size(15, 15);
 			this.label14.TabIndex = 19;
 			this.label14.Text = "y:";
 			// 
 			// tbx_PY
 			// 
-			this.tbx_PY.Location = new System.Drawing.Point(149, 80);
+			this.tbx_PY.Location = new System.Drawing.Point(179, 108);
 			this.tbx_PY.MaxLength = 10;
 			this.tbx_PY.Name = "tbx_PY";
 			this.tbx_PY.Size = new System.Drawing.Size(37, 20);
@@ -199,7 +202,7 @@
 			// 
 			// tbx_PX
 			// 
-			this.tbx_PX.Location = new System.Drawing.Point(83, 80);
+			this.tbx_PX.Location = new System.Drawing.Point(113, 108);
 			this.tbx_PX.MaxLength = 10;
 			this.tbx_PX.Name = "tbx_PX";
 			this.tbx_PX.Size = new System.Drawing.Size(37, 20);
@@ -208,14 +211,14 @@
 			// 
 			// tbx_Path2
 			// 
-			this.tbx_Path2.Location = new System.Drawing.Point(53, 6);
+			this.tbx_Path2.Location = new System.Drawing.Point(53, 23);
 			this.tbx_Path2.Name = "tbx_Path2";
 			this.tbx_Path2.Size = new System.Drawing.Size(266, 20);
 			this.tbx_Path2.TabIndex = 1;
 			// 
 			// tbx_Text
 			// 
-			this.tbx_Text.Location = new System.Drawing.Point(53, 32);
+			this.tbx_Text.Location = new System.Drawing.Point(53, 49);
 			this.tbx_Text.MaxLength = 200;
 			this.tbx_Text.Name = "tbx_Text";
 			this.tbx_Text.Size = new System.Drawing.Size(295, 20);
@@ -224,25 +227,25 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(62, 83);
+			this.label13.Location = new System.Drawing.Point(92, 111);
 			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(15, 13);
+			this.label13.Size = new System.Drawing.Size(16, 15);
 			this.label13.TabIndex = 17;
 			this.label13.Text = "x:";
 			// 
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(9, 83);
+			this.label12.Location = new System.Drawing.Point(39, 111);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(47, 13);
+			this.label12.Size = new System.Drawing.Size(54, 15);
 			this.label12.TabIndex = 16;
 			this.label12.Text = "Position:";
 			// 
 			// btn_Browse2
 			// 
 			this.btn_Browse2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.btn_Browse2.Location = new System.Drawing.Point(322, 6);
+			this.btn_Browse2.Location = new System.Drawing.Point(322, 23);
 			this.btn_Browse2.Name = "btn_Browse2";
 			this.btn_Browse2.Size = new System.Drawing.Size(26, 20);
 			this.btn_Browse2.TabIndex = 2;
@@ -252,9 +255,10 @@
 			// 
 			// btn_Start2
 			// 
+			this.btn_Start2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_Start2.AutoSize = true;
 			this.btn_Start2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-			this.btn_Start2.Location = new System.Drawing.Point(206, 106);
+			this.btn_Start2.Location = new System.Drawing.Point(731, 70);
 			this.btn_Start2.Name = "btn_Start2";
 			this.btn_Start2.Size = new System.Drawing.Size(75, 26);
 			this.btn_Start2.TabIndex = 10;
@@ -272,7 +276,7 @@
             "Regular",
             "Strikeout",
             "Underline"});
-			this.cbx_FontStyle.Location = new System.Drawing.Point(243, 56);
+			this.cbx_FontStyle.Location = new System.Drawing.Point(243, 75);
 			this.cbx_FontStyle.Name = "cbx_FontStyle";
 			this.cbx_FontStyle.Size = new System.Drawing.Size(105, 21);
 			this.cbx_FontStyle.TabIndex = 5;
@@ -281,9 +285,9 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(182, 59);
+			this.label10.Location = new System.Drawing.Point(182, 78);
 			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(55, 13);
+			this.label10.Size = new System.Drawing.Size(61, 15);
 			this.label10.TabIndex = 11;
 			this.label10.Text = "Font style:";
 			// 
@@ -313,8 +317,11 @@
             "375",
             "400",
             "500",
-            "750"});
-			this.cbx_Size.Location = new System.Drawing.Point(53, 56);
+            "750",
+            "900",
+            "1000",
+            "1250"});
+			this.cbx_Size.Location = new System.Drawing.Point(53, 75);
 			this.cbx_Size.Name = "cbx_Size";
 			this.cbx_Size.Size = new System.Drawing.Size(57, 21);
 			this.cbx_Size.TabIndex = 4;
@@ -323,18 +330,18 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(9, 59);
+			this.label9.Location = new System.Drawing.Point(9, 78);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(30, 13);
+			this.label9.Size = new System.Drawing.Size(34, 15);
 			this.label9.TabIndex = 9;
 			this.label9.Text = "Size:";
 			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(357, 9);
+			this.label8.Location = new System.Drawing.Point(360, 7);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(31, 13);
+			this.label8.Size = new System.Drawing.Size(34, 15);
 			this.label8.TabIndex = 8;
 			this.label8.Text = "Font:";
 			// 
@@ -345,25 +352,25 @@
 			this.listFont.FormattingEnabled = true;
 			this.listFont.Location = new System.Drawing.Point(400, 7);
 			this.listFont.Name = "listFont";
-			this.listFont.Size = new System.Drawing.Size(310, 108);
+			this.listFont.Size = new System.Drawing.Size(310, 134);
 			this.listFont.TabIndex = 9;
 			this.listFont.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listFont_DrawItem);
 			// 
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(9, 8);
+			this.label7.Location = new System.Drawing.Point(9, 25);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(32, 13);
+			this.label7.Size = new System.Drawing.Size(35, 15);
 			this.label7.TabIndex = 5;
 			this.label7.Text = "Path:";
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(9, 34);
+			this.label6.Location = new System.Drawing.Point(9, 51);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(31, 13);
+			this.label6.Size = new System.Drawing.Size(33, 15);
 			this.label6.TabIndex = 3;
 			this.label6.Text = "Text:";
 			// 
@@ -372,11 +379,10 @@
 			this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox6.Controls.Add(this.pbx_After);
-			this.groupBox6.Controls.Add(this.pbx_Before);
+			this.groupBox6.Controls.Add(this.tableLayoutPanel1);
 			this.groupBox6.Location = new System.Drawing.Point(3, 135);
 			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(714, 212);
+			this.groupBox6.Size = new System.Drawing.Size(820, 320);
 			this.groupBox6.TabIndex = 2;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "Preview";
@@ -384,19 +390,19 @@
 			// pbx_After
 			// 
 			this.pbx_After.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pbx_After.Location = new System.Drawing.Point(345, 16);
+			this.pbx_After.Location = new System.Drawing.Point(410, 3);
 			this.pbx_After.Name = "pbx_After";
-			this.pbx_After.Size = new System.Drawing.Size(366, 193);
+			this.pbx_After.Size = new System.Drawing.Size(401, 295);
 			this.pbx_After.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbx_After.TabIndex = 1;
 			this.pbx_After.TabStop = false;
 			// 
 			// pbx_Before
 			// 
-			this.pbx_Before.Dock = System.Windows.Forms.DockStyle.Left;
-			this.pbx_Before.Location = new System.Drawing.Point(3, 16);
+			this.pbx_Before.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pbx_Before.Location = new System.Drawing.Point(3, 3);
 			this.pbx_Before.Name = "pbx_Before";
-			this.pbx_Before.Size = new System.Drawing.Size(342, 193);
+			this.pbx_Before.Size = new System.Drawing.Size(401, 295);
 			this.pbx_Before.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbx_Before.TabIndex = 0;
 			this.pbx_Before.TabStop = false;
@@ -428,7 +434,7 @@
 			this.label16.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
 			this.label16.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.label16.Location = new System.Drawing.Point(71, 18);
+			this.label16.Location = new System.Drawing.Point(76, 12);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(44, 13);
 			this.label16.TabIndex = 20;
@@ -443,7 +449,7 @@
 			this.label11.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
 			this.label11.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.label11.Location = new System.Drawing.Point(265, 18);
+			this.label11.Location = new System.Drawing.Point(262, 12);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(47, 13);
 			this.label11.TabIndex = 19;
@@ -575,7 +581,7 @@
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(6, 65);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(36, 13);
+			this.label5.Size = new System.Drawing.Size(41, 15);
 			this.label5.TabIndex = 4;
 			this.label5.Text = "Digits:";
 			// 
@@ -602,7 +608,7 @@
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(6, 43);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(46, 13);
+			this.label4.Size = new System.Drawing.Size(50, 15);
 			this.label4.TabIndex = 2;
 			this.label4.Text = "Step by:";
 			// 
@@ -634,7 +640,7 @@
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(6, 21);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(44, 13);
+			this.label3.Size = new System.Drawing.Size(48, 15);
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Start at:";
 			// 
@@ -657,7 +663,8 @@
             "all lowercase",
             "ALL UPPERCASE",
             "First letter uppercase",
-            "First Of Each Word Uppercase"});
+            "First Of Each Word Uppercase",
+            "CamelCase"});
 			this.cbx_Case.Location = new System.Drawing.Point(6, 19);
 			this.cbx_Case.Name = "cbx_Case";
 			this.cbx_Case.Size = new System.Drawing.Size(188, 21);
@@ -699,7 +706,7 @@
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(6, 43);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(72, 13);
+			this.label2.Size = new System.Drawing.Size(81, 15);
 			this.label2.TabIndex = 1;
 			this.label2.Text = "Replace with:";
 			// 
@@ -708,7 +715,7 @@
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(6, 21);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(30, 13);
+			this.label1.Size = new System.Drawing.Size(34, 15);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Find:";
 			// 
@@ -776,9 +783,9 @@
 			this.groupBox1.Controls.Add(this.btn_Range);
 			this.groupBox1.Controls.Add(this.btn_Name);
 			this.groupBox1.Controls.Add(this.tbx_fileName);
-			this.groupBox1.Location = new System.Drawing.Point(8, 34);
+			this.groupBox1.Location = new System.Drawing.Point(8, 28);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(353, 93);
+			this.groupBox1.Size = new System.Drawing.Size(353, 99);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Rename mask: File name";
@@ -786,9 +793,9 @@
 			// chk_Format
 			// 
 			this.chk_Format.AutoSize = true;
-			this.chk_Format.Location = new System.Drawing.Point(188, 75);
+			this.chk_Format.Location = new System.Drawing.Point(184, 71);
 			this.chk_Format.Name = "chk_Format";
-			this.chk_Format.Size = new System.Drawing.Size(152, 17);
+			this.chk_Format.Size = new System.Drawing.Size(169, 19);
 			this.chk_Format.TabIndex = 22;
 			this.chk_Format.Text = "Vietnamese format (d/M/y)";
 			this.chk_Format.UseVisualStyleBackColor = true;
@@ -797,9 +804,9 @@
 			// chk_Diacritical
 			// 
 			this.chk_Diacritical.AutoSize = true;
-			this.chk_Diacritical.Location = new System.Drawing.Point(44, 75);
+			this.chk_Diacritical.Location = new System.Drawing.Point(18, 71);
 			this.chk_Diacritical.Name = "chk_Diacritical";
-			this.chk_Diacritical.Size = new System.Drawing.Size(144, 17);
+			this.chk_Diacritical.Size = new System.Drawing.Size(164, 19);
 			this.chk_Diacritical.TabIndex = 21;
 			this.chk_Diacritical.Text = "Remove diacritical marks";
 			this.chk_Diacritical.UseVisualStyleBackColor = true;
@@ -904,6 +911,21 @@
 			this.aboutAuthorToolStripMenuItem.Text = "About author";
 			this.aboutAuthorToolStripMenuItem.Click += new System.EventHandler(this.aboutAuthorToolStripMenuItem_Click);
 			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Controls.Add(this.pbx_Before, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.pbx_After, 1, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(814, 301);
+			this.tableLayoutPanel1.TabIndex = 2;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -911,6 +933,7 @@
 			this.ClientSize = new System.Drawing.Size(834, 511);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.menuStrip1);
+			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
 			this.MinimumSize = new System.Drawing.Size(850, 550);
@@ -939,6 +962,7 @@
 			this.tabControl1.ResumeLayout(false);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			this.tableLayoutPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1017,6 +1041,7 @@
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutAuthorToolStripMenuItem;
 		private System.Windows.Forms.CheckBox chk_Format;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 	}
 }
 
