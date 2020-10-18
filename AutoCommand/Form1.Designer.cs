@@ -664,7 +664,8 @@
             "ALL UPPERCASE",
             "First letter uppercase",
             "First Of Each Word Uppercase",
-            "CamelCase"});
+            "CamelCase",
+            "rEVERSED cASE"});
 			this.cbx_Case.Location = new System.Drawing.Point(6, 19);
 			this.cbx_Case.Name = "cbx_Case";
 			this.cbx_Case.Size = new System.Drawing.Size(188, 21);
@@ -818,7 +819,7 @@
 			this.btn_Time.Name = "btn_Time";
 			this.btn_Time.Size = new System.Drawing.Size(55, 23);
 			this.btn_Time.TabIndex = 4;
-			this.btn_Time.Text = "[T] Time";
+			this.btn_Time.Text = "[&T] Time";
 			this.btn_Time.UseVisualStyleBackColor = true;
 			this.btn_Time.Click += new System.EventHandler(this.btn_Time_Click);
 			// 
@@ -828,7 +829,7 @@
 			this.btn_Date.Name = "btn_Date";
 			this.btn_Date.Size = new System.Drawing.Size(57, 23);
 			this.btn_Date.TabIndex = 6;
-			this.btn_Date.Text = "[D] Date";
+			this.btn_Date.Text = "[&D] Date";
 			this.btn_Date.UseVisualStyleBackColor = true;
 			this.btn_Date.Click += new System.EventHandler(this.btn_Date_Click);
 			// 
@@ -838,7 +839,7 @@
 			this.btn_Counter.Name = "btn_Counter";
 			this.btn_Counter.Size = new System.Drawing.Size(70, 23);
 			this.btn_Counter.TabIndex = 3;
-			this.btn_Counter.Text = "[C] Counter";
+			this.btn_Counter.Text = "[&C] Counter";
 			this.btn_Counter.UseVisualStyleBackColor = true;
 			this.btn_Counter.Click += new System.EventHandler(this.btn_Counter_Click);
 			// 
@@ -848,7 +849,7 @@
 			this.btn_Range.Name = "btn_Range";
 			this.btn_Range.Size = new System.Drawing.Size(88, 23);
 			this.btn_Range.TabIndex = 5;
-			this.btn_Range.Text = "[N#-#] Range";
+			this.btn_Range.Text = "[N#-#] &Range";
 			this.btn_Range.UseVisualStyleBackColor = true;
 			this.btn_Range.Click += new System.EventHandler(this.btn_Range_Click);
 			// 
@@ -858,7 +859,7 @@
 			this.btn_Name.Name = "btn_Name";
 			this.btn_Name.Size = new System.Drawing.Size(62, 23);
 			this.btn_Name.TabIndex = 2;
-			this.btn_Name.Text = "[N] Name";
+			this.btn_Name.Text = "[&N] Name";
 			this.btn_Name.UseVisualStyleBackColor = true;
 			this.btn_Name.Click += new System.EventHandler(this.btn_Name_Click);
 			// 

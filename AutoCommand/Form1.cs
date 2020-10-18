@@ -14,6 +14,7 @@ namespace AutoCommand
 	{
 		private string logPath, backupPath;
 		private bool canReplace = true;
+		private char[] prohibitedChars = { '\\', '/', ':', '*', '?', '\"', '<', '>', '|' };
 
 		public Form1()
 		{
@@ -253,6 +254,12 @@ namespace AutoCommand
 			}
 		}
 
+		void ShowProhibitCharacters(TextBox textBox)
+		{
+			ToolTip toolTip = new ToolTip();
+			toolTip.Show("A file name can't contain any of the following characters: \\ / : * ? \" < > |", textBox, 10000);
+		}
+
 		private void tbx_fileName_TextChanged(object sender, EventArgs e)
 		{
 			processMask();
@@ -386,14 +393,20 @@ namespace AutoCommand
 
 		private void tbx_fileName_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if (e.KeyChar == (char)Keys.Enter)
-				btn_Start1.PerformClick();
+			if (prohibitedChars.Contains(e.KeyChar))
+			{
+				ShowProhibitCharacters((TextBox)sender);
+				e.Handled = true;
+			}
 		}
 
 		private void tbx_Extension_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if (e.KeyChar == (char)Keys.Enter)
-				btn_Start1.PerformClick();
+			if (prohibitedChars.Contains(e.KeyChar))
+			{
+				ShowProhibitCharacters((TextBox)sender);
+				e.Handled = true;
+			}
 		}
 
 		private void chk_Diacritical_CheckedChanged(object sender, EventArgs e)

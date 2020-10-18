@@ -14,7 +14,8 @@ namespace AutoCommand
 		ToUpper,
 		ToFirstUpper,
 		ToTitle,
-		ToCamelCase
+		ToCamelCase,
+		ToReverseCase
 	}
 
 	public class Converter
@@ -36,6 +37,8 @@ namespace AutoCommand
 					return t.ToTitleCase(text);
 				case TextCase.ToCamelCase:
 					return ChangeCase(text, (int)TextCase.ToTitle).Replace(" ", "");
+				case TextCase.ToReverseCase:
+					return new string(text.Select(c => char.IsLetter(c) ? (char.IsUpper(c) ? char.ToLower(c) : char.ToUpper(c)) : c).ToArray());
 				default:
 					return null;
 			}
@@ -110,5 +113,6 @@ namespace AutoCommand
 				r = r.Replace(from[i].ToString(), to[i].ToString()).Replace(from[i].ToString().ToUpper(), to[i].ToString().ToUpper());
 			return r;
 		}
+
 	}
 }
