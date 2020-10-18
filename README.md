@@ -9,6 +9,8 @@
 
 ![Main Application](Capture-2.png?raw=true "Giao diện chính - Thêm watermark")
 
+![Main Application](Capture-3.png?raw=true "Demo")
+
 ## Lưu ý
 
 ## Hướng dẫn sử dụng
