@@ -3,11 +3,13 @@
 
 ## Cài đặt
 
-![Main Application](Capture.PNG?raw=true "Main Application")
+![Main Application](Capture.PNG?raw=true "Giao diện chính - Đổi tên tập tin")
+
+![Main Application](Capture 1.PNG?raw=true "Demo")
+
+![Main Application](Capture 2.PNG?raw=true "Giao diện chính - Thêm watermark")
 
 ## Lưu ý
-
-Vẫn còn tồn tại một số lỗi 
 
 ## Hướng dẫn sử dụng
 
