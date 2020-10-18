@@ -5,9 +5,9 @@
 
 ![Main Application](Capture.PNG?raw=true "Giao diện chính - Đổi tên tập tin")
 
-![Main Application](Capture 1.png?raw=true "Demo")
+![Main Application](Capture-1.png?raw=true "Demo")
 
-![Main Application](Capture 2.png?raw=true "Giao diện chính - Thêm watermark")
+![Main Application](Capture-2.png?raw=true "Giao diện chính - Thêm watermark")
 
 ## Lưu ý
 
