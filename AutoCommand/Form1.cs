@@ -4,194 +4,41 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace AutoCommand
 {
 	public partial class Form1 : Form
 	{
-		private string path1 = "log.txt", path2 = "backup.txt";
+		private string logPath, backupPath;
 		private bool canReplace = true;
-		private bool tiengViet = false;
 
 		public Form1()
 		{
 			InitializeComponent();
 		}
 
-		private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			tiengViet = false;
-			tabPage2.Text = "Multi-Watermark Tool";
-			groupBox6.Text = "Preview";
-			label6.Text = "Text:";
-			label7.Text = "Path:";
-			label8.Text = "Font:";
-			label9.Text = "Size:";
-			label10.Text = "Font style:";
-			btn_Start2.Text = "Start";
-			label12.Text = "Position:";
-			label15.Text = "Color:";
-			btn_ChoosenColor.Text = "Choose...";
-			btn_Review.Text = "Preview";
-			tabPage1.Text = "Multi-Rename Tool";
-			groupBox1.Text = "Rename mask: File name";
-			chk_Diacritical.Text = "Remove diacritical marks";
-			groupBox2.Text = "Extension";
-			groupBox3.Text = "Find and Replace";
-			label1.Text = "Find:";
-			label2.Text = "Replace with:";
-			groupBox4.Text = "Change case";
-			label3.Text = "Start at:";
-			label4.Text = "Step by:";
-			label5.Text = "Digits:";
-			Col_Location.HeaderText = "Location";
-			Col_Date.HeaderText = "Date modification";
-			Size.HeaderText = "Size";
-			Col_NewName.HeaderText = "New name";
-			Col_OldName.HeaderText = "Old name";
-			btn_Start1.Text = "Start";
-			btn_Browse1.Text = "Browse...";
-			label11.Text = "View log";
-			label16.Text = "Backup";
-			ShowTooltip();
-			ChangeDateFormat(false);
-		}
-
-		private void tiếngViệtToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			tiengViet = true;
-			tabPage2.Text = "Chèn ảnh mờ";
-			groupBox6.Text = "Xem trước";
-			label6.Text = "Chữ:";
-			label7.Text = "Đdẫn:";
-			label8.Text = "Phông:";
-			label9.Text = "Cỡ:";
-			label10.Text = "Kiểu:";
-			btn_Start2.Text = "B.đầu";
-			label12.Text = "Vị trí:";
-			label15.Text = "Màu:";
-			btn_ChoosenColor.Text = "Chọn...";
-			btn_Review.Text = "Xem trước";
-			tabPage1.Text = "Đổi tên";
-			groupBox1.Text = "Mặt nạ: Tên";
-			chk_Diacritical.Text = "Loại bỏ thanh điệu";
-			groupBox2.Text = "Phần mở rộng";
-			groupBox3.Text = "T.kiếm và T.thế";
-			label1.Text = "Tìm:";
-			label2.Text = "Thay bằng:";
-			groupBox4.Text = "Đổi chữ hoa";
-			label3.Text = "B.đầu tại:";
-			label4.Text = "K.cách:";
-			label5.Text = "T.phân:";
-			Col_Location.HeaderText = "Vị trí";
-			Col_Date.HeaderText = "Ngày chỉnh sửa";
-			Col_NewName.HeaderText = "Tên mới";
-			Size.HeaderText = "Cỡ";
-			Col_OldName.HeaderText = "Tên cũ";
-			btn_Start1.Text = "B.đầu";
-			btn_Browse1.Text = "Duyệt...";
-			label11.Text = "Xem n.ký";
-			label16.Text = "Sao lưu";
-			ShowTooltip();
-			ChangeDateFormat(true);
-		}
-
 		private void aboutAuthorToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("CHƯƠNG TRÌNH HỖ TRỢ ĐỔI TÊN ĐA TẬP TIN VÀ THÊM ẢNH MỜ (WATERMARK) VÀO ẢNH\r\nTác giả: LA QUỐC THẮNG\r\nChi tiết liên hệ: quocthang0507@gmail.com", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show("CHƯƠNG TRÌNH HỖ TRỢ ĐỔI TÊN ĐA TẬP TIN VÀ THÊM ẢNH MỜ (WATERMARK) VÀO ẢNH\nTác giả: LA QUỐC THẮNG\nChi tiết liên hệ: quocthang0507@gmail.com", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			dataGridView1.RowHeadersVisible = false;
-			ShowTooltip();
 			GetFont();
 		}
 
-		ToolTip toolTip1 = new ToolTip();
-
-		void ChangeDateFormat(bool isVie)
-		{
-			if (isVie)
-			{
-				foreach (DataGridViewRow item in dataGridView1.Rows)
-					if (item.Cells[3].Value != null)
-					{
-						DateTime d = DateTime.ParseExact(item.Cells[3].Value.ToString(), "yyyy/M/dd", System.Globalization.CultureInfo.InvariantCulture);
-						item.Cells[3].Value = d.ToString("dd/M/yyyy");
-					}
-			}
-			else
-			{
-				foreach (DataGridViewRow item in dataGridView1.Rows)
-					if (item.Cells[3].Value != null)
-
-					{
-						DateTime d = DateTime.ParseExact(item.Cells[3].Value.ToString(), "dd/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-						item.Cells[3].Value = d.ToString("yyyy/M/dd");
-					}
-			}
-		}
-
-		void ShowTooltip()
-		{
-			toolTip1.AutoPopDelay = 10000;
-			toolTip1.InitialDelay = 1000;
-			toolTip1.ReshowDelay = 500;
-			toolTip1.ShowAlways = true;
-			if (!tiengViet)
-			{
-				toolTip1.SetToolTip(btn_Browse1, "Browse for file(s)");
-				toolTip1.SetToolTip(btn_Start1, "Start rename all files");
-				toolTip1.SetToolTip(btn_Browse2, "Browse for image folder");
-				toolTip1.SetToolTip(btn_Start2, "Start add watermark to all pictures in folder");
-				toolTip1.SetToolTip(label11, "View the log");
-				toolTip1.SetToolTip(label16, "Backup these file names and open file backup");
-				toolTip1.SetToolTip(btn_Review, "Review the effectiveness of adding watermark to first image");
-				toolTip1.SetToolTip(chk_Diacritical, "Remove diacritical marks if exists, such as ắ -> a, ươ -> uo, đ -> d,...");
-			}
-			else
-			{
-				toolTip1.SetToolTip(btn_Browse1, "Duyệt đến (các) tập tin");
-				toolTip1.SetToolTip(btn_Start1, "Thực thi việc đổi tên");
-				toolTip1.SetToolTip(btn_Browse2, "Duyệt đến thư mục có chứa hình ảnh");
-				toolTip1.SetToolTip(btn_Start2, "Thực thi việc chèn watermark vào các ảnh trong thư mục");
-				toolTip1.SetToolTip(label11, "Xem nhật ký đổi tên");
-				toolTip1.SetToolTip(label16, "Sao lưu tên tập tin và mở tập sao lưu");
-				toolTip1.SetToolTip(btn_Review, "Xem trước sự ảnh hưởng của việc chèn watermark vào ảnh đầu tiên");
-				toolTip1.SetToolTip(chk_Diacritical, "Loại bỏ các thanh điệu, ví dụ ắ -> a, ươ -> uo, đ -> d,...");
-			}
-
-		}
-
 		#region Tab1
-		string ConvertFileLength(double len)
-		{
-			string[] sizes = { "B", "KB", "MB", "GB", "TB" };
-			int order = 0;
-			while (len >= 1024 && order < sizes.Length - 1)
-			{
-				order++;
-				len = len / 1024;
-			}
-			return string.Format("{0:0.##} {1}", len, sizes[order]);
-		}
 
 		private void btn_Browse1_Click(object sender, EventArgs e)
 		{
-			if (!tiengViet)
-				openFileDialog1.Title = "Browse for one or more files";
-			else openFileDialog1.Title = "Duyệt đến một hoặc nhiều tập tin";
+			openFileDialog1.Title = "Browse for one or more files";
 			openFileDialog1.RestoreDirectory = true;
 			openFileDialog1.Multiselect = true;
-			if (!tiengViet)
-				openFileDialog1.Filter = "All files (*.*)|*.*";
-			else openFileDialog1.Filter = "Tất cả (*.*)|*.*";
+			openFileDialog1.Filter = "All files (*.*)|*.*";
 			ShowSelectedfiles();
 		}
 
@@ -215,26 +62,16 @@ namespace AutoCommand
 			{
 				dataGridView1.Rows.Clear();
 				Reset();
-				object[] row = new object[5];
 				int count = openFileDialog1.FileNames.Length;
 				int step = 1 / count;
 				progressBar1.Value = 0;
-				foreach (var item in openFileDialog1.FileNames)
+				foreach (var file in openFileDialog1.FileNames)
 				{
-					DateTime modification = File.GetLastWriteTime(item);
-					string name = Path.GetFileName(item).TrimStart(' ');
-					row[0] = name;
-					row[1] = name;
-					row[2] = ConvertFileLength(new FileInfo(item).Length);
-					if (!tiengViet)
-						row[3] = modification.ToString("yyyy/M/dd");
-					else row[3] = modification.ToString("dd/M/yyyy");
-					row[4] = item.Replace(name, "");
-					dataGridView1.Rows.Add(row);
+					dataGridView1.Rows.Add(Converter.GetFileInfoToRow(file, !chk_Format.Checked));
 					progressBar1.Value += step;
 				}
-				path1 = dataGridView1.Rows[0].Cells[4].Value.ToString() + "log.txt";
-				path2 = dataGridView1.Rows[0].Cells[4].Value.ToString() + "backup.txt";
+				logPath = Path.Combine(dataGridView1.Rows[0].Cells[4].Value.ToString(), "log.txt");
+				backupPath = Path.Combine(dataGridView1.Rows[0].Cells[4].Value.ToString(), "backup.txt");
 				progressBar1.Value = 100;
 			}
 		}
@@ -281,29 +118,27 @@ namespace AutoCommand
 
 		private void label11_Click(object sender, EventArgs e)
 		{
-			if (!File.Exists(path1))
-				File.CreateText(path1);
-			Process.Start(path1);
+			if (!File.Exists(logPath))
+				File.CreateText(logPath);
+			Process.Start(logPath);
 		}
 
 		private void label16_Click(object sender, EventArgs e)
 		{
 			string[] names = openFileDialog1.FileNames;
-			if (names[0] == "openFileDialog1")
-				if (!tiengViet)
-					MessageBox.Show("You have to firstly browse for file(s) ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				else MessageBox.Show("Bạn phải duyệt tập tin trước", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			if (names.Count() == 0)
+				MessageBox.Show("You have to browse for file(s) first", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			else
 			{
-				StreamWriter sw = new StreamWriter(path2, true);
-				if (!tiengViet)
+				StreamWriter sw = new StreamWriter(backupPath, true);
+				if (!chk_Format.Checked)
 					sw.WriteLine(DateTime.Now.ToString("yyyy/M/dd"));
 				else sw.WriteLine(DateTime.Now.ToString("dd/M/yyyy"));
 				foreach (var item in names)
 					sw.WriteLine(item);
 				sw.WriteLine();
 				sw.Close();
-				Process.Start(path2);
+				Process.Start(backupPath);
 			}
 		}
 
@@ -317,27 +152,17 @@ namespace AutoCommand
 			tbx_Extension.SelectAll();
 		}
 
-		List<string> DecomposeMask(TextBox t)
-		{
-			List<string> mask = new List<string>();
-			string pattern = "\\[.*?\\]|.";
-			Regex rgx = new Regex(pattern);
-			foreach (Match m in rgx.Matches(t.Text, 0))
-				mask.Add(m.Value);
-			return mask;
-		}
-
 		//The name without extension, and it is original name
-		string NameProcessing(string name, int id, int count, int total, int digit)
+		string processFileName(string name, int id, int count, int total, int digit)
 		{
-			List<string> mask = DecomposeMask(tbx_fileName);
+			List<string> mask = Converter.DecomposeMask(tbx_fileName.Text);
 			string n = "";
 			if (mask.Count == 0)
 				return n;
 			else
 				foreach (var item in mask)
 				{
-					string path = string.Concat(dataGridView1.Rows[id].Cells[4].Value, dataGridView1.Rows[id].Cells[0].Value);
+					string path = Path.Combine(dataGridView1.Rows[id].Cells[4].Value.ToString(), dataGridView1.Rows[id].Cells[0].Value.ToString());
 					DateTime modification = File.GetLastWriteTime(path);
 					switch (item)
 					{
@@ -359,7 +184,7 @@ namespace AutoCommand
 							break;
 						case "[D]":
 						case "[d]":
-							if (!tiengViet)
+							if (!chk_Format.Checked)
 								n += modification.ToString("yyyyMdd");
 							else n += modification.ToString("ddMyyyy");
 							break;
@@ -368,14 +193,14 @@ namespace AutoCommand
 							break;
 					}
 					if (chk_Diacritical.Checked)
-						n = Retitle(n);
+						n = Converter.Retitle(n);
 				}
 			return n;
 		}
 
-		string ExtProcessing(string ext, int id, int count, int total, int digit)
+		string processFileExt(string ext, int id, int count, int total, int digit)
 		{
-			List<string> mask = DecomposeMask(tbx_Extension);
+			List<string> mask = Converter.DecomposeMask(tbx_Extension.Text);
 			string e = "";
 			if (mask.Count == 0)
 				return e;
@@ -404,28 +229,19 @@ namespace AutoCommand
 			return e;
 		}
 
-		string[] SplitByDot(string text)
-		{
-			string[] r = new string[2];
-			int i = text.LastIndexOf('.');
-			r[0] = text.Remove(i);
-			r[1] = text.Substring(i + 1);
-			return r;
-		}
-
-		void MaskProcessing()
+		void processMask()
 		{
 			int count = Convert.ToInt32(nud_Start.Value), id = 0;
 			foreach (DataGridViewRow row in dataGridView1.Rows)
 			{
 				if (row.Cells[0].Value != null)
 				{
-					string[] t = SplitByDot(row.Cells[0].Value.ToString());
-					string r = string.Concat(NameProcessing(t[0], id, count, dataGridView1.RowCount, int.Parse(cbx_Digits.SelectedItem.ToString())), '.', ExtProcessing(t[1], id, count, dataGridView1.RowCount, int.Parse(cbx_Digits.SelectedItem.ToString())));
-					r = ChangeCase(r, cbx_Case.SelectedIndex);
+					string[] t = Converter.SplitByDot(row.Cells[0].Value.ToString());
+					string r = string.Concat(processFileName(t[0], id, count, dataGridView1.RowCount, int.Parse(cbx_Digits.SelectedItem.ToString())), '.', processFileExt(t[1], id, count, dataGridView1.RowCount, int.Parse(cbx_Digits.SelectedItem.ToString())));
+					r = Converter.ChangeCase(r, cbx_Case.SelectedIndex);
 					if (tbx_Find.Text != "" && canReplace)
 					{
-						t = SplitByDot(r);
+						t = Converter.SplitByDot(r);
 						t[0] = t[0].Replace(tbx_Find.Text, tbx_Replace.Text);
 						t[1] = t[1].Replace(tbx_Find.Text, tbx_Replace.Text);
 						row.Cells[1].Value = string.Concat(t[0], ".", t[1]);
@@ -439,44 +255,17 @@ namespace AutoCommand
 
 		private void tbx_fileName_TextChanged(object sender, EventArgs e)
 		{
-			MaskProcessing();
+			processMask();
 		}
 
 		private void tbx_Extension_TextChanged(object sender, EventArgs e)
 		{
-			MaskProcessing();
+			processMask();
 		}
 
 		void ReloadMask()
 		{
-			MaskProcessing();
-		}
-
-		string ChangeCase(string text, int id)
-		{
-			if (id == 0)
-				return text;
-			else if (id == 1)
-				return text.ToLower();
-			else if (id == 2)
-				return text.ToUpper();
-			else if (id == 3)
-				return char.ToUpper(text.First()) + text.Substring(1).ToLower();
-			else
-			{
-				TextInfo t = new CultureInfo("en-US", false).TextInfo;
-				return t.ToTitleCase(text);
-			}
-		}
-
-		string Retitle(string t)
-		{
-			var from = "àáảãạăằắẳẵặâầấẩẫậđèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵ·/_,:;";
-			var to = "aaaaaaaaaaaaaaaaadeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyy------";
-			var r = t;
-			for (int i = 0, l = from.Length; i < l; i++)
-				r = r.Replace(from[i].ToString(), to[i].ToString()).Replace(from[i].ToString().ToUpper(), to[i].ToString().ToUpper());
-			return r;
+			processMask();
 		}
 
 		private void cbx_Case_SelectedValueChanged(object sender, EventArgs e)
@@ -486,7 +275,7 @@ namespace AutoCommand
 			else
 				foreach (DataGridViewRow row in dataGridView1.Rows)
 					if (row.Cells[0].Value != null)
-						row.Cells[1].Value = ChangeCase(row.Cells[1].Value.ToString(), cbx_Case.SelectedIndex);
+						row.Cells[1].Value = Converter.ChangeCase(row.Cells[1].Value.ToString(), cbx_Case.SelectedIndex);
 		}
 
 		private void tbx_Find_TextChanged(object sender, EventArgs e)
@@ -499,7 +288,7 @@ namespace AutoCommand
 				{
 					if (row.Cells[0].Value != null)
 					{
-						string[] t = SplitByDot(row.Cells[1].Value.ToString());
+						string[] t = Converter.SplitByDot(row.Cells[1].Value.ToString());
 						t[0] = t[0].Replace(tbx_Find.Text, tbx_Replace.Text);
 						t[1] = t[1].Replace(tbx_Find.Text, tbx_Replace.Text);
 						row.Cells[1].Value = string.Concat(t[0], ".", t[1]);
@@ -519,7 +308,7 @@ namespace AutoCommand
 				{
 					if (row.Cells[0].Value != null)
 					{
-						string[] t = SplitByDot(row.Cells[1].Value.ToString());
+						string[] t = Converter.SplitByDot(row.Cells[1].Value.ToString());
 						t[0] = t[0].Replace(tbx_Find.Text, tbx_Replace.Text);
 						t[1] = t[1].Replace(tbx_Find.Text, tbx_Replace.Text);
 						row.Cells[1].Value = string.Concat(t[0], ".", t[1]);
@@ -532,15 +321,13 @@ namespace AutoCommand
 		private void btn_Start1_Click(object sender, EventArgs e)
 		{
 			if (openFileDialog1.FileNames[0] == "openFileDialog1")
-				if (!tiengViet)
-					MessageBox.Show("Please firstly browse file(s). Then change the file name and file extenion. Finally press this button", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				else MessageBox.Show("Đầu tiên duyệt đến các tập tin. Sau đó thay đổi tên và phần mở rộng. Cuối cùng mới nhấn nút này", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show("Please firstly browse file(s). Then change the file name and file extenion. Finally press this button", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			else
 			{
 				int count = dataGridView1.Rows.Count - 1;
 				int step = 1 / count;
 				progressBar1.Value = 0;
-				StreamWriter sw = new StreamWriter(path1, true);
+				StreamWriter sw = new StreamWriter(logPath, true);
 				sw.WriteLine(DateTime.Now.ToString());
 				foreach (DataGridViewRow row in dataGridView1.Rows)
 					if (row.Cells[0].Value != null)
@@ -614,6 +401,15 @@ namespace AutoCommand
 			ReloadMask();
 		}
 
+		private void chk_Format_CheckedChanged(object sender, EventArgs e)
+		{
+			foreach (DataGridViewRow item in dataGridView1.Rows)
+				if (item.Cells[3].Value != null)
+				{
+					item.Cells[3].Value = Converter.ConvertDate(item.Cells[3].Value.ToString(), ((CheckBox)sender).Checked);
+				}
+		}
+
 		#endregion
 
 		#region Tab2
@@ -668,15 +464,11 @@ namespace AutoCommand
 						img.Dispose();
 					}
 				}
-				if (!tiengViet)
-					MessageBox.Show("Processing Completed", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				else MessageBox.Show("Xử lý xong", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Processing Completed", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			catch (Exception ex)
 			{
-				if (!tiengViet)
-					MessageBox.Show("There was an error during processing...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				else MessageBox.Show("Có một lỗi trong quá trình xử lý", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("There was an error during processing...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			finally
 			{
@@ -699,9 +491,7 @@ namespace AutoCommand
 
 		private void btn_Browse2_Click(object sender, EventArgs e)
 		{
-			if (!tiengViet)
-				folderBrowserDialog1.Description = "Browse for image folder";
-			else folderBrowserDialog1.Description = "Duyệt đến thư mục có chứa hình ảnh";
+			folderBrowserDialog1.Description = "Browse for image folder";
 			folderBrowserDialog1.ShowNewFolderButton = false;
 			ReviewPicture();
 		}
@@ -725,9 +515,7 @@ namespace AutoCommand
 				tbx_Path2.Text = folderBrowserDialog1.SelectedPath;
 				string r = GetTheFirstPic();
 				if (r == "")
-					if (!tiengViet)
-						MessageBox.Show("Can't find any pictures on this folder", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					else MessageBox.Show("Không tìm thấy hình ảnh trong thư mục này", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show("Can't find any pictures on this folder", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				else
 					pbx_Before.Image = Image.FromFile(r);
 			}
